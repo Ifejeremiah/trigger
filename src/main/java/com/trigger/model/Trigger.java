@@ -10,6 +10,9 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class Trigger {
     @NotBlank(message = "Ref is required")
-    @Length(min = 10, max = 30)
+    @Length(min = 3, max = 30)
     private String ref;
+    @NotBlank(message = "Repository is required")
+    @Length(min = 3, max = 30)
+    private String repository;
 }

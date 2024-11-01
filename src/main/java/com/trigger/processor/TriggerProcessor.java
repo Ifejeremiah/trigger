@@ -8,18 +8,25 @@ import java.io.InputStreamReader;
 
 @Slf4j
 public class TriggerProcessor implements Runnable {
+    String appName;
+
+    public TriggerProcessor(String appName) {
+        this.appName = appName;
+    }
+
     @Override
     public void run() {
-        try {
-            executeScript();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+        log.info("value of repository, {}", appName);
+//            executeScript();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     private void executeScript() throws IOException {
         try {
-            String[] cmdList = {"bash", "sync.sh"};
+            String[] cmdList = {"bash", "sync.sh", appName};
             Process p = Runtime.getRuntime().exec(cmdList);
 
             BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));

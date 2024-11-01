@@ -25,7 +25,7 @@ public class TriggerService {
                 log.info("Target branch: {}", trigger.getRef());
                 log.info("Proceed to execute CI...");
 
-                TriggerProcessor processor = new TriggerProcessor();
+                TriggerProcessor processor = new TriggerProcessor(trigger.getRepository());
                 executor.execute(processor);
             }
         } catch (Exception error) {
