@@ -5,6 +5,9 @@ APP_NAME=$1
 if [ $# -eq 0 ]; then
     echo "No arguments supplied"
     exit 1
+elif [ ! -f ../$APP_NAME/ ]; then
+    echo "Repository not found"
+    exit 1
 elif [ ! -f ../$APP_NAME/.cicd ]; then
     echo "No trigger file (.cicd) found"
     exit 1

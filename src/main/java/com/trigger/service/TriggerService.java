@@ -19,13 +19,13 @@ public class TriggerService {
     }
 
     public void trigger(Trigger trigger) {
-        log.info("Caught trigger event");
+        log.info("Trigger listened...");
         try {
             if (trigger.getRef().equalsIgnoreCase(branch)) {
                 log.info("Target branch: {}", trigger.getRef());
                 log.info("Proceed to execute CI...");
 
-                TriggerProcessor processor = new TriggerProcessor(trigger.getRepository());
+                TriggerProcessor processor = new TriggerProcessor(trigger);
                 executor.execute(processor);
             }
         } catch (Exception error) {
