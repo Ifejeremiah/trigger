@@ -3,7 +3,7 @@ FROM openjdk:8u252 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src src
-COPY sync sync
+COPY sync.sh sync.sh
 
 # Copy Maven wrapper
 COPY mvnw .
